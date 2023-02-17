@@ -3,7 +3,7 @@ services:
   app:
     container_name: efris_tcs
     restart: always
-    build: .
+    image: jabahum/efris_tcs:latest
     ports:
       - "9880:9880"
       - "9885:9885"

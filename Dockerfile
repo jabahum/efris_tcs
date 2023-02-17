@@ -7,16 +7,19 @@ LABEL version="v1.19"
 LABEL description="Docker Image for URA EFRIS (TAX CONTROL SERVICE) "
 
 # Disable Prompt During Packages Installation
-ARG DEBIAN_FRONTEND=noninteractive
+# ARG DEBIAN_FRONTEND=noninteractive
 
 # Update Ubuntu Software repository
 RUN apt update
 
 #  install tcs support packages
-RUN apt install libaio1 numactl
+RUN apt install  -y libaio1 numactl
 
 # install jdk support packages
-RUN install openjdk-8-jdk openjdk-8-jre
+RUN apt install -y openjdk-8-jdk openjdk-8-jre
+
+RUN apt install -y wget
+
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
@@ -31,6 +34,7 @@ RUN tar -zxvf EFRIS_Offline_Mode_Enabler_for_Ubuntu_V19-Test.tar.gz
 
 RUN cd /TaxControlService
 
+EXPOSE 9880 9885 9889 9980 9985 9989
+
 CMD ["sh tcs.sh"]
 
-EXPOSE 9880 9885 9889 9980 9985 9989
