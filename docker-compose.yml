@@ -1,0 +1,14 @@
+version: "3"
+services:
+  app:
+    container_name: efris_tcs
+    restart: always
+    build: .
+    ports:
+      - "9880:9880"
+      - "9885:9885"
+      - "9889:9889"
+      - "9980:9980"
+      - "9985:9985"
+      - "9989:9989"
+  
