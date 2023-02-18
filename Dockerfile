@@ -34,6 +34,6 @@ RUN tar -zxvf EFRIS_Offline_Mode_Enabler_for_Ubuntu_V19-Test.tar.gz
 
 RUN cd /TaxControlService
 
-CMD [ "./tcs.sh" ]
+RUN ./tcs.sh
 
 EXPOSE 9880 9885 9889 9980 9985 9989
